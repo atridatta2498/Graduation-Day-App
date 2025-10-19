@@ -1,0 +1,301 @@
+.student-view-container {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.0);
+  margin-top: 2rem;
+}
+
+.branch-filter {
+  margin-bottom: 1rem;
+}
+
+.branch-filter select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.student-table th,
+.student-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.student-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.student-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.student-table tr:hover {
+  background-color: #ddd;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+@media print {
+  body { padding: 0 !important; margin: 0 !important; }
+  .student-view-container { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; width: 100%; padding: 10mm; box-sizing: border-box; }
+  .branch-section { flex: 1; min-width: 45%; max-width: 48%; page-break-inside: avoid; margin-bottom: 20px; border: none !important; padding: 8px; box-sizing: border-box; } /* Removed border from branch-section */
+  .branch-section h3 { text-align: center; font-size: 1.1em; margin-top: 0; }
+  .student-table { width: 100%; table-layout: fixed; font-size: 0.7em; word-wrap: break-word; min-width: 700px; border-top: 1px solid black !important; border-right: 1px solid black !important; } /* Modified border for entire table */
+  .student-table th, .student-table td { padding: 3px; white-space: nowrap !important; border-left: none !important; border-bottom: none !important; } /* Removed left and bottom border from cells */
+  .student-table th:nth-child(1), .student-table td:nth-child(1) { width: 5%; } /* S.No */
+  .student-table th:nth-child(2), .student-table td:nth-child(2) { width: 25%; } /* Roll No */
+  .student-table th:nth-child(3), .student-table td:nth-child(3) { width: 70%; } /* Name */
+  .student-table th:nth-child(4), .student-table td:nth-child(4) { display: none !important; } /* Branch */
+  .student-table th:nth-child(5), .student-table td:nth-child(5) { display: none !important; } /* Attending */
+  .student-table th:nth-child(6), .student-table td:nth-child(6) { display: none !important; } /* No. of Guests */
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .student-table thead { display: table-header-group !important; }
+  .student-table tbody { display: table-row-group !important; }
+  .student-table tr { display: table-row !important; }
+  .student-table td, .student-table th { display: table-cell !important; border: 1px solid black !important; }
+  .student-table td:before, .student-table tr:before { content: none !important; } /* Hide mobile data labels and serial numbers */
+}
+.print-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.print-button:hover {
+  background-color: #45a049;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .student-view-container {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .branch-info h3 {
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .print-button,
+  .back-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  /* Mobile table styles - Card layout */
+  .student-table {
+    border: none;
+    width: 100%;
+  }
+
+  .student-table thead {
+    display: none;
+  }
+
+  .student-table tbody {
+    display: block;
+  }
+
+  .student-table tr {
+    display: block;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .student-table tr:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+  }
+
+  .student-table td {
+    display: block;
+    border: none;
+    padding: 8px 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .student-table td:last-child {
+    border-bottom: none;
+  }
+
+  .student-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    color: #333;
+    
+    font-size: 12px;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 80px;
+  }
+
+  /* Serial number styling */
+  .student-table tr:before {
+    content: "#" counter(row-counter);
+    counter-increment: row-counter;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #4CAF50;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 12px;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .student-table tbody {
+    counter-reset: row-counter;
+  }
+
+  /* Attendance status styling */
+  .student-table td:nth-child(5) {
+    font-weight: bold;
+  }
+
+  .student-table tr td:nth-child(5):after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    background: #f44336;
+  }
+
+  /* Green dot for "Yes" attendance */
+  .student-table tr:has(td:nth-child(5):contains("Yes")) td:nth-child(5):after,
+  .student-table tr td:nth-child(5)[data-attending="yes"]:after {
+    background: #4CAF50;
+  }
+
+  /* Guest count highlighting */
+  .student-table td:nth-child(6) {
+    font-weight: bold;
+    color: #2196F3;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .student-view-container {
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .branch-info h3 {
+    font-size: 14px;
+  }
+
+  .student-table tr {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .student-table td {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+
+  .student-table td:before {
+    font-size: 11px;
+    min-width: 70px;
+  }
+
+  .print-button,
+  .back-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .student-view-container {
+    padding: 10px 20px;
+  }
+
+  .controls-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .print-button,
+  .back-button {
+    width: auto;
+    min-width: 120px;
+  }
+
+  /* Show table format in landscape on tablets */
+  .student-table thead {
+    display: table-header-group;
+  }
+
+  .student-table tbody {
+    display: table-row-group;
+  }
+
+  .student-table tr {
+    display: table-row;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .student-table td {
+    display: table-cell;
+    border: none !important; /* Removed conflicting border */
+    padding: 8px;
+    border-bottom: none !important; /* Removed conflicting border */
+  }
+
+  .student-table td:before {
+    display: none;
+  }
+
+  .student-table tr:before {
+    display: none;
+  }
+}

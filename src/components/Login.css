@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.login-container {
+  position: relative;
+  z-index: 1; /* Ensure the login form is above the video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Add a dark overlay for better text visibility */
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.2); /* Set background to semi-transparent white */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #8B0000; /* Add border matching one of the gradient colors */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Set background to semi-transparent white */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  
+}
+
+/* Password input container styles */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  padding-right: 45px; /* Make space for the toggle button */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.password-toggle-btn:hover {
+  color: #333;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.password-toggle-btn:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.password-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.password-toggle-btn:hover svg {
+  transform: scale(1.1);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 0 auto; /* Center the button */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(to right, #8B0000, #006400); /* Gradient from dark red to green */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(to right, #006400, #8B0000); /* Reverse gradient on hover */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.main-header {
+  text-align: center; /* Center the text */
+  font-size: 24px; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Add spacing below the header */
+  background: linear-gradient(90deg, #8B0000, #FF4500, #FFD700, #32CD32, #1E90FF, #8A2BE2, #8B0000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s linear infinite;
+}
+
+.footer {
+   text-align: center; /* Center the text */
+  font-size: 14px; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Add spacing below the header */
+  background: linear-gradient(90deg, #8B0000, #FF4500, #FFD700, #32CD32, #1E90FF, #8A2BE2, #8B0000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s linear infinite;
+}
+
+.login-box h2 {
+  text-align: center; /* Center the text */
+  font-size: 20px; /* Adjust font size as needed */
+  margin-bottom: 15px; /* Add spacing below the header */
+  background: linear-gradient(90deg, #8B0000, #FF4500, #FFD700, #32CD32, #1E90FF, #8A2BE2, #8B0000);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s linear infinite;
+}
+
+.main-header, .footer, .login-box h2, label, button {
+  font-family: 'Poetsen One', sans-serif; /* Apply the font to desired elements */
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.redirecting-message {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.error-message {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 500;
+  animation: slideInUp 0.3s ease-out;
+}
+
+.success-message {
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(25, 135, 84, 0.05));
+  border: 1px solid rgba(40, 167, 69, 0.5);
+  color: #155724;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.success-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.success-icon {
+  font-size: 24px;
+  animation: bounceIn 0.6s ease-out;
+}
+
+.success-header h3 {
+  margin: 0;
+  color: #155724;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.email-notification {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(108, 117, 125, 0.05));
+  border: 1px solid rgba(13, 110, 253, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.email-icon {
+  font-size: 20px;
+  animation: pulse 2s infinite;
+}
+
+.email-status {
+  flex: 1;
+  text-align: left;
+}
+
+.email-status strong {
+  color: #0d6efd;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.email-status small {
+  color: #6c757d;
+  font-size: 11px;
+}
+
+.reference-id {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.5);
+  color: #856404;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-family: 'Courier New', monospace;
+}
+
+.reference-id strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.reference-id small {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+/* Modal Styles for Password Change */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid #8B0000;
+  max-width: 450px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  color: #8B0000;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: 'Poetsen One', cursive;
+}
+
+.modal-content p {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Animations for Email Notification */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.password-requirements {
+  background: rgba(139, 0, 0, 0.1);
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.password-requirements small {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Password input container and toggle styles */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  padding-right: 45px; /* Make space for the toggle button */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(139, 0, 0, 0.7);
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+.password-toggle-btn:hover {
+  color: #8B0000;
+}
+
+.password-toggle-btn:disabled {
+  cursor: not-allowed;
+  color: rgba(139, 0, 0, 0.3);
+}
+
+.password-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* Email Popup Modal Styles */
+.email-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.email-popup {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  position: relative;
+  border: 2px solid #ddd;
+}
+
+.email-popup.success {
+  border-left: 5px solid #28a745;
+}
+
+.email-popup.warning {
+  border-left: 5px solid #ffc107;
+}
+
+.email-popup.error {
+  border-left: 5px solid #dc3545;
+}
+
+.popup-header {
+  background: linear-gradient(135deg, #8B0000, #006400);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.popup-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.popup-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.popup-content {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.popup-content p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Success Modal Styles */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.success-modal-content {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  max-width: 500px;
+  margin: 20px;
+  animation: modalSlideIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-modal-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: shimmer 2s infinite;
+}
+
+.success-modal-content h3 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.success-modal-content h3::before {
+  content: '🎉 ';
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.success-modal-content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation keyframes */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive popup */
+@media (max-width: 600px) {
+  .email-popup {
+    width: 95%;
+    max-width: none;
+  }
+  
+  .popup-header {
+    padding: 15px;
+  }
+  
+  .popup-header h3 {
+    font-size: 16px;
+  }
+  
+  .popup-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .success-modal-content {
+    padding: 30px 20px;
+    margin: 15px;
+    min-width: auto;
+  }
+
+  .success-modal-content h3 {
+    font-size: 20px;
+  }
+
+  .success-modal-content p {
+    font-size: 14px;
+  }
+
+  /* Password toggle button mobile styles */
+  .password-input-container {
+    position: relative;
+  }
+
+  .password-input-container input {
+    padding-right: 50px; /* More space for touch targets */
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .password-toggle-btn {
+    right: 10px;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    color: #555;
+  }
+
+  .password-toggle-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .password-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+}

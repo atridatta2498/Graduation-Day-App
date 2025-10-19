@@ -1,0 +1,356 @@
+.guest-view-container {
+  background-color:#f9f9f917;
+  border-color:#ddd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.guest-table {
+  border-color:#ddd;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.guest-table th, .guest-table td {
+  border-color:#ddd;
+  border: 1px solid #f9f9f917;
+  padding: 8px;
+  text-align: left;
+}
+.guest-table td,
+.guest-table th {
+  text-transform: uppercase;
+}
+.guest-table th {
+  background-color: #f9f9f917;
+  border-color:#ddd;
+    color: #333;
+}
+
+.guest-table tr:nth-child(even) {
+  background-color:#f9f9f917;
+  border-color:#ddd;
+}
+
+.guest-table tr:hover {
+  background-color: #ddd;
+  border-color:#ddd;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.print-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.print-button:hover {
+  background-color: #45a049;
+}
+
+@media print {
+  .background-video,
+  .print-button,
+  .footer {
+    display: none !important;
+  }
+
+  .guest-view-container {
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .guest-table {
+    width: 100% !important;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .guest-view-container {
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: none;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .branch-info h3 {
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .controls-container p {
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .print-button,
+  .back-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  /* Mobile table styles - Card layout */
+  .guest-table {
+    border: none;
+    width: 100%;
+  }
+
+  .guest-table thead {
+    display: none;
+  }
+
+  .guest-table tbody {
+    display: block;
+  }
+
+  .guest-table tr {
+    display: block;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .guest-table tr:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+
+  .guest-table td {
+    display: block;
+    border: none;
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .guest-table td:last-child {
+    border-bottom: none;
+  }
+
+  .guest-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  /* Guest card header with serial number */
+  .guest-table tr:before {
+    content: "#" counter(guest-counter);
+    counter-increment: guest-counter;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 15px;
+    min-width: 25px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .guest-table tbody {
+    counter-reset: guest-counter;
+  }
+
+  /* Student info highlighting */
+  .guest-table td:nth-child(2), /* Roll No */
+  .guest-table td:nth-child(3) { /* Student Name */
+    background: #e8f4f8;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 5px 0;
+  }
+
+  /* Guest info highlighting */
+  .guest-table td:nth-child(4), /* Guest Name */
+  .guest-table td:nth-child(5) { /* Relationship */
+    background: #f0f8e8;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 5px 0;
+  }
+
+  /* Phone number styling */
+  .guest-table td:nth-child(6) {
+    background: #fff3e0;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 5px 0;
+    font-weight: 600;
+    color: #e65100;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Add icons to data labels */
+  .guest-table td:nth-child(2):before {
+    content: "🎓 " attr(data-label);
+  }
+
+  .guest-table td:nth-child(3):before {
+    content: "👤 " attr(data-label);
+  }
+
+  .guest-table td:nth-child(4):before {
+    content: "👥 " attr(data-label);
+  }
+
+  .guest-table td:nth-child(5):before {
+    content: "💝 " attr(data-label);
+  }
+
+  .guest-table td:nth-child(6):before {
+    content: "📱 " attr(data-label);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .guest-view-container {
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .branch-info h3 {
+    font-size: 14px;
+  }
+
+  .controls-container p {
+    font-size: 13px;
+  }
+
+  .guest-table tr {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .guest-table td {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .guest-table td:before {
+    font-size: 11px;
+  }
+
+  .guest-table td:nth-child(2),
+  .guest-table td:nth-child(3),
+  .guest-table td:nth-child(4),
+  .guest-table td:nth-child(5),
+  .guest-table td:nth-child(6) {
+    padding: 10px;
+  }
+
+  .print-button,
+  .back-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .guest-view-container {
+    padding: 10px 20px;
+  }
+
+  .controls-container {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .print-button,
+  .back-button {
+    width: auto;
+    min-width: 120px;
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  /* Show table format in landscape on tablets */
+  .guest-table thead {
+    display: table-header-group;
+  }
+
+  .guest-table tbody {
+    display: table-row-group;
+  }
+
+  .guest-table tr {
+    display: table-row;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .guest-table td {
+    display: table-cell;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    background: transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  .guest-table td:before {
+    display: none;
+  }
+
+  .guest-table tr:before {
+    display: none;
+  }
+
+  .guest-table tr:nth-child(even) {
+    background-color: #f9f9f917;
+  }
+
+  .guest-table tr:hover {
+    background-color: #ddd;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
